@@ -53,7 +53,7 @@ class CrossCompressUnit(Layer):
     def __init__(self, dim, name=None):
         super(CrossCompressUnit, self).__init__(name)
         self.dim = dim
-        with tf.variable_scope(self.name):
+        with tf.compat.v1.variable_scope(self.name):
             self.weight_vv = tf.compat.v1.get_variable(name='weight_vv', shape=(dim, 1), dtype=tf.float32)
             self.weight_ev = tf.compat.v1.get_variable(name='weight_ev', shape=(dim, 1), dtype=tf.float32)
             self.weight_ve = tf.compat.v1.get_variable(name='weight_ve', shape=(dim, 1), dtype=tf.float32)
