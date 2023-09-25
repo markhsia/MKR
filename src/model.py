@@ -1,5 +1,7 @@
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from sklearn.metrics import roc_auc_score
 from layers import Dense, CrossCompressUnit
 
