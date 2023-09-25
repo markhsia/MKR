@@ -67,8 +67,8 @@ class CrossCompressUnit(Layer):
         v, e = inputs
 
         # [batch_size, dim, 1], [batch_size, 1, dim]
-        v = tf.expand_dims(v, dim=2)
-        e = tf.expand_dims(e, dim=1)
+        v = tf.expand_dims(v, axis=2)
+        e = tf.expand_dims(e, axis=1)
 
         # [batch_size, dim, dim]
         c_matrix = tf.matmul(v, e)
