@@ -39,8 +39,8 @@ class Dense(Layer):
         self.act = act
         #with tf.variable_scope(self.name):
         with tf.compat.v1.variable_scope(self.name):
-            self.weight = tf.get_variable(name='weight', shape=(input_dim, output_dim), dtype=tf.float32)
-            self.bias = tf.get_variable(name='bias', shape=output_dim, initializer=tf.zeros_initializer())
+            self.weight =tf.compat.v1.get_variable(name='weight', shape=(input_dim, output_dim), dtype=tf.float32)
+            self.bias = tf.compat.v1.get_variable(name='bias', shape=output_dim, initializer=tf.zeros_initializer())
         self.vars = [self.weight]
 
     def _call(self, inputs):
@@ -54,12 +54,12 @@ class CrossCompressUnit(Layer):
         super(CrossCompressUnit, self).__init__(name)
         self.dim = dim
         with tf.variable_scope(self.name):
-            self.weight_vv = tf.get_variable(name='weight_vv', shape=(dim, 1), dtype=tf.float32)
-            self.weight_ev = tf.get_variable(name='weight_ev', shape=(dim, 1), dtype=tf.float32)
-            self.weight_ve = tf.get_variable(name='weight_ve', shape=(dim, 1), dtype=tf.float32)
-            self.weight_ee = tf.get_variable(name='weight_ee', shape=(dim, 1), dtype=tf.float32)
-            self.bias_v = tf.get_variable(name='bias_v', shape=dim, initializer=tf.zeros_initializer())
-            self.bias_e = tf.get_variable(name='bias_e', shape=dim, initializer=tf.zeros_initializer())
+            self.weight_vv = tf.compat.v1.get_variable(name='weight_vv', shape=(dim, 1), dtype=tf.float32)
+            self.weight_ev = tf.compat.v1.get_variable(name='weight_ev', shape=(dim, 1), dtype=tf.float32)
+            self.weight_ve = tf.compat.v1.get_variable(name='weight_ve', shape=(dim, 1), dtype=tf.float32)
+            self.weight_ee = tf.compat.v1.get_variable(name='weight_ee', shape=(dim, 1), dtype=tf.float32)
+            self.bias_v = tf.compat.v1.get_variable(name='bias_v', shape=dim, initializer=tf.zeros_initializer())
+            self.bias_e = tf.compat.v1.get_variable(name='bias_e', shape=dim, initializer=tf.zeros_initializer())
         self.vars = [self.weight_vv, self.weight_ev, self.weight_ve, self.weight_ee]
 
     def _call(self, inputs):
