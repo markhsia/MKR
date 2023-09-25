@@ -20,7 +20,7 @@ def train(args, data, show_loss, show_topk):
         user_list = np.random.choice(user_list, size=user_num, replace=False)
     item_set = set(list(range(n_item)))
 
-    with tf.Session() as sess:
+    with tf.compat.v1.Session() as sess:
         sess.run(tf.global_variables_initializer())
         for step in range(args.n_epochs):
             # RS training
