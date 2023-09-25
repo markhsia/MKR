@@ -31,7 +31,7 @@ class Layer(object):
 
 
 class Dense(Layer):
-    def __init__(self, input_dim, output_dim, dropout=0.0, act=tf.nn.relu, name=None):
+    def __init__(self, input_dim, output_dim, dropout=0.2, act=tf.nn.relu, name=None):
         super(Dense, self).__init__(name)
         self.input_dim = input_dim
         self.output_dim = output_dim
