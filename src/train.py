@@ -21,7 +21,7 @@ def train(args, data, show_loss, show_topk):
     item_set = set(list(range(n_item)))
 
     with tf.compat.v1.Session() as sess:
-        sess.run(tf.global_variables_initializer())
+        sess.run(tf.compat.v1.global_variables_initializer())
         for step in range(args.n_epochs):
             # RS training
             np.random.shuffle(train_data)
