@@ -37,7 +37,8 @@ class Dense(Layer):
         self.output_dim = output_dim
         self.dropout = dropout
         self.act = act
-        with tf.variable_scope(self.name):
+        #with tf.variable_scope(self.name):
+        with tf.compat.v1.variable_scope(self.name):
             self.weight = tf.get_variable(name='weight', shape=(input_dim, output_dim), dtype=tf.float32)
             self.bias = tf.get_variable(name='bias', shape=output_dim, initializer=tf.zeros_initializer())
         self.vars = [self.weight]
